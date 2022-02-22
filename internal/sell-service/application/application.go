@@ -32,5 +32,5 @@ type ShopWorkerInterface interface {
 func (worker *Application) CreateProductAndList(request command_workers.ProductRequest) (*[]entity.Product, error) {
 	worker.CommandWorkers.ShopPusher.CreateProduct(request)
 	//algo stuff
-	return worker.QueryWorkers.ShopReceiver.ListProducts()
+	return worker.QueryWorkers.ShopReceiver.GetProductsList()
 }

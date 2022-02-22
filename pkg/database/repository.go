@@ -33,7 +33,7 @@ type RepositoryInterface interface {
 }
 
 // Init ...
-func RepositoryInit(config *RepositoryConfig) (rep *Repository, err error) {
+func NewRepository(config *RepositoryConfig) (rep *Repository, err error) {
 	dbConfig := config.postgresConfig()
 
 	conn, err := gorm.Open(

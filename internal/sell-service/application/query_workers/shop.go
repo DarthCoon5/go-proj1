@@ -9,15 +9,15 @@ type ShopReceiver struct {
 }
 
 type ShopReceiverInterface interface {
-	ListProducts() (*[]entity.Product, error)
-	CountProducts() (int64, error)
+	GetProductsList() (*[]entity.Product, error)
+	GetProductsCount() (int64, error)
 }
 
 // get thing
-func (receiver *ShopReceiver) ListProducts() (*[]entity.Product, error) {
-	return receiver.ShopReceiverInterface.ListProducts()
+func (receiver *ShopReceiver) GetProductsList() (*[]entity.Product, error) {
+	return receiver.ShopReceiverInterface.GetProductsList()
 }
 
-func (receiver *ShopReceiver) CountProducts() (int64, error) {
-	return receiver.ShopReceiverInterface.CountProducts()
+func (receiver *ShopReceiver) GetProductsCount() (int64, error) {
+	return receiver.ShopReceiverInterface.GetProductsCount()
 }

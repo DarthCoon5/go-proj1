@@ -23,17 +23,13 @@ func main() {
 	config := getServiceConfig()
 	service, err := sell_service.NewService(config, logger)
 	if err != nil {
-		logger.Warn(fmt.Sprintln(err))
+		logger.Error(fmt.Sprintln(err))
 		return
 	}
 
 	if err := service.Run(); err != nil {
-		logger.Warn(fmt.Sprintln(err))
+		logger.Error(fmt.Sprintln(err))
 	}
-
-	// TODO
-	// cron?
-	// stop service?
 }
 
 func initConfig() error {

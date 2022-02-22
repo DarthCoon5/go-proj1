@@ -24,7 +24,7 @@ type ServerConfig struct {
 
 func NewService(config *Config, logger *logrus.Logger) (*Service, error) {
 	repoConfig := config.RepositoryConfig
-	repo, err := database.RepositoryInit(repoConfig)
+	repo, err := database.NewRepository(repoConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -33,7 +33,7 @@ func NewService(config *Config, logger *logrus.Logger) (*Service, error) {
 		Repository: repo,
 	}
 
-	app, err := infrastructure.GormInfrastructure.ApplicationInit(gormInfrastructure)
+	app, err := infrastructure.GormInfrastructure.NewApplication(gormInfrastructure)
 	if err != nil {
 		return nil, err
 	}

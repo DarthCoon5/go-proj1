@@ -10,7 +10,7 @@ type GormInfrastructure struct {
 	Repository *database.Repository
 }
 
-func (inf *GormInfrastructure) ApplicationInit() (app *application.Application, err error) {
+func (inf *GormInfrastructure) NewApplication() (app *application.Application, err error) {
 	app = new(application.Application)
 	app.QueryWorkers.ShopReceiver.ShopReceiverInterface = &client.ShopAdapter{
 		Repository: inf.Repository,

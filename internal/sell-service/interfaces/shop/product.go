@@ -28,7 +28,7 @@ func RegisterProductRoutes(workers *ProductWorkers, r *gin.RouterGroup) {
 
 func (worker *ProductWorkers) GetProductsList(c *gin.Context) {
 
-	respond, err := worker.QueryWorker.ShopReceiverInterface.ListProducts()
+	respond, err := worker.QueryWorker.ShopReceiverInterface.GetProductsList()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
 	}
@@ -75,7 +75,7 @@ func (worker *ProductWorkers) CountProducts(c *gin.Context) {
 		return
 	}
 
-	respond, err := worker.QueryWorker.CountProducts()
+	respond, err := worker.QueryWorker.GetProductsCount()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
 	}
